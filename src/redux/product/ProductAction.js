@@ -5,6 +5,7 @@ import {
     FETCH_PRODUCT_FAILURE,
     ADD_PRODUCT,
     REMOVE_PRODUCT,
+    CHECK_OUT
 } from './Constans'
 
 export const fetchProducts = () => {
@@ -45,20 +46,32 @@ export const fetchProductsFailure = error => {
     }
 }
 
-export const addProduct = (item) => {
+export const addProduct = (id,item) => {
 
     return {
         type: ADD_PRODUCT,
         selectedProduct: {
+            id:id,
             item: item,
             qty: 1
         }
     }
 }
 
-export const removeProduct = () => {
+export const removeProduct = (id,item) => {
     return {
         type: REMOVE_PRODUCT,
+        removeProduct: {
+            id:id,
+            item: item,
+            qty: 1
+        }
+    }
+}
+
+export const checkout = () => {
+    return {
+        type: CHECK_OUT,
 
     }
 }
